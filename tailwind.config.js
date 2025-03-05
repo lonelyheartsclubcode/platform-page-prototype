@@ -7,6 +7,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'amigo-bg': 'rgb(246, 244, 235)',
+        'amigo-mint': 'rgb(180, 228, 219)',
+        'amigo-pink': 'rgb(255, 203, 196)',
+        'amigo-text': 'rgb(31, 31, 31)',
+        'amigo-text-secondary': 'rgb(75, 75, 75)',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',

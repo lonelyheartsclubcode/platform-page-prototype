@@ -85,7 +85,7 @@ const CTA = () => {
     <section 
       id="contact" 
       ref={sectionRef}
-      className="py-24 bg-gradient-to-br from-indigo-600 to-purple-700 text-white relative overflow-hidden"
+      className="py-24 bg-amigo-bg text-amigo-text relative overflow-hidden"
     >
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -102,14 +102,14 @@ const CTA = () => {
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Experience the full spectrum of AI innovation
           </h2>
-          <p className="text-lg md:text-xl text-indigo-100 mb-10">
+          <p className="text-lg md:text-xl text-amigo-text-secondary mb-10">
             Transform how your enterprise engages with intelligent, adaptive AI solutions.
           </p>
           
           <Link 
             href="#"
             ref={buttonRef}
-            className="inline-block px-8 py-4 bg-white text-indigo-600 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
+            className="inline-block px-8 py-4 bg-amigo-mint text-amigo-text rounded-full text-lg font-medium shadow-sm hover:shadow-md hover:opacity-90 transition-all"
           >
             Get Started Today →
           </Link>

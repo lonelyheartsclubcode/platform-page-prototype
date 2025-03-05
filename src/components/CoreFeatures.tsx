@@ -107,17 +107,17 @@ const CoreFeatures = () => {
     <section 
       id="core" 
       ref={sectionRef}
-      className="py-20 bg-gradient-to-b from-white to-indigo-50"
+      className="py-20 bg-amigo-bg"
     >
       <div className="container mx-auto px-4">
         <div ref={headingRef} className="text-center mb-16">
-          <span className="inline-block px-3 py-1 text-sm font-semibold bg-indigo-100 text-indigo-800 rounded-full mb-3">
+          <span className="inline-block px-3 py-1 text-sm font-semibold bg-amigo-pink bg-opacity-60 text-amigo-text rounded-full mb-3">
             Core
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-amigo-text mb-4">
             Intelligent AI Frontline
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-amigo-text-secondary max-w-3xl mx-auto">
             At the heart of Amigo lies Core—a fully integrated suite that drives your AI front office.
           </p>
         </div>
@@ -129,15 +129,15 @@ const CoreFeatures = () => {
               ref={el => {
                 cards.current[index] = el;
               }}
-              className="bg-white rounded-xl shadow-xl p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-indigo-50"
+              className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
             >
-              <div className="text-indigo-600 mb-4">
+              <div className="text-amigo-text mb-4">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
+              <h3 className="text-xl font-bold text-amigo-text mb-3">
                 {feature.title}
               </h3>
-              <p className="text-gray-600">
+              <p className="text-amigo-text-secondary">
                 {feature.description}
               </p>
             </div>
@@ -145,7 +145,7 @@ const CoreFeatures = () => {
         </div>
         
         <div className="text-center mt-12">
-          <p className="text-gray-600 max-w-3xl mx-auto">
+          <p className="text-amigo-text-secondary max-w-3xl mx-auto">
             Core is the engine that drives real-world, client-facing AI interactions—ensuring your solution not only meets but exceeds expectations.
           </p>
         </div>

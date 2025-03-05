@@ -7,6 +7,7 @@ const Hero = () => {
   const subheadingRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
+  const announcementRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -14,9 +15,15 @@ const Hero = () => {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
       
       tl.fromTo(
+        announcementRef.current,
+        { y: -20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8 }
+      )
+      .fromTo(
         headingRef.current,
         { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1 }
+        { y: 0, opacity: 1, duration: 1 },
+        "-=0.4"
       )
       .fromTo(
         subheadingRef.current,
@@ -30,15 +37,6 @@ const Hero = () => {
         { y: 0, opacity: 1, duration: 0.8 },
         "-=0.4"
       );
-      
-      // Add a "floating" effect to the background gradient
-      gsap.to(heroRef.current, {
-        backgroundPosition: "100% 100%",
-        duration: 15,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-      });
     });
     
     return () => ctx.revert(); // Cleanup
@@ -47,26 +45,28 @@ const Hero = () => {
   return (
     <div 
       ref={heroRef}
-      className="relative min-h-screen flex items-center bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-800 background-animate overflow-hidden pt-16"
-      style={{ backgroundSize: "200% 200%", backgroundPosition: "0% 0%" }}
+      className="relative min-h-screen flex flex-col items-center justify-center bg-amigo-bg overflow-hidden pt-16"
     >
-      {/* Abstract shapes for visual interest */}
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-      <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-      <div className="absolute bottom-1/4 right-1/3 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+      <div 
+        ref={announcementRef}
+        className="absolute top-32 mx-auto py-2 px-4 rounded-full border border-gray-200 bg-white/80 backdrop-blur-sm shadow-sm"
+      >
+        <span className="inline-block mr-2 px-2 py-1 text-xs font-medium bg-amigo-pink rounded-full">New</span>
+        <span className="text-sm text-amigo-text">Announcing our $6.3M raise to create our vision for the future</span>
+      </div>
       
-      <div className="container mx-auto px-4 z-10 text-center">
+      <div className="container mx-auto px-4 z-10 text-center mt-24">
         <h1 
           ref={headingRef} 
-          className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
+          className="text-4xl md:text-6xl lg:text-7xl font-bold text-amigo-text leading-tight mb-6"
         >
           The Amigo Platform:<br />
-          <span className="text-indigo-300">Where AI Meets Enterprise Excellence</span>
+          <span className="text-amigo-text-secondary">Where AI Meets Enterprise Excellence</span>
         </h1>
         
         <p 
           ref={subheadingRef}
-          className="text-xl md:text-2xl text-indigo-100 max-w-3xl mx-auto mb-10"
+          className="text-xl md:text-2xl text-amigo-text-secondary max-w-3xl mx-auto mb-10"
         >
           Empowering enterprises with next-generation AI solutions.
         </p>
@@ -74,13 +74,13 @@ const Hero = () => {
         <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link 
             href="#platform"
-            className="px-8 py-4 bg-white text-indigo-900 rounded-full text-lg font-semibold hover:bg-indigo-100 transition-colors shadow-lg hover:shadow-xl"
+            className="px-8 py-3 bg-amigo-mint text-amigo-text rounded-full text-lg font-medium hover:opacity-90 transition-all shadow-sm hover:shadow-md"
           >
             Explore Platform
           </Link>
           <Link 
             href="#contact"
-            className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full text-lg font-semibold hover:bg-white/10 transition-colors"
+            className="px-8 py-3 bg-transparent border-2 border-amigo-text text-amigo-text rounded-full text-lg font-medium hover:bg-amigo-text/10 transition-colors"
           >
             Get Started Today →
           </Link>

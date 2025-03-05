@@ -110,17 +110,17 @@ const TestFeatures = () => {
     <section 
       id="test" 
       ref={sectionRef}
-      className="py-20 bg-gradient-to-b from-indigo-50 to-white"
+      className="py-20 bg-white"
     >
       <div className="container mx-auto px-4">
         <div ref={headingRef} className="text-center mb-16">
-          <span className="inline-block px-3 py-1 text-sm font-semibold bg-purple-100 text-purple-800 rounded-full mb-3">
+          <span className="inline-block px-3 py-1 text-sm font-semibold bg-amigo-mint bg-opacity-40 text-amigo-text rounded-full mb-3">
             Test
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-amigo-text mb-4">
             The Observability Layer
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-amigo-text-secondary max-w-3xl mx-auto">
             Gain complete visibility into your AI's performance with Test.
           </p>
         </div>
@@ -128,37 +128,37 @@ const TestFeatures = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div ref={imageRef} className="order-2 lg:order-1">
             {/* Abstract visualization */}
-            <div className="relative w-full h-80 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-2xl overflow-hidden shadow-lg">
+            <div className="relative w-full h-80 bg-gradient-to-br from-amigo-mint to-amigo-bg rounded-2xl overflow-hidden shadow-sm">
               {/* Graph line */}
               <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 300">
                 <path 
                   d="M0,150 C50,120 100,180 150,150 C200,120 250,180 300,150 C350,120 400,180 450,150" 
                   fill="none" 
-                  stroke="#6366F1" 
+                  stroke="#1F1F1F" 
                   strokeWidth="3"
                   strokeDasharray="1000"
                   strokeDashoffset="1000"
                   className="animate-draw-line"
                 />
-                <circle cx="150" cy="150" r="6" fill="#6366F1" className="animate-pulse"/>
-                <circle cx="300" cy="150" r="6" fill="#6366F1" className="animate-pulse animation-delay-2000"/>
+                <circle cx="150" cy="150" r="6" fill="#1F1F1F" className="animate-pulse"/>
+                <circle cx="300" cy="150" r="6" fill="#1F1F1F" className="animate-pulse animation-delay-2000"/>
               </svg>
               
               {/* Floating elements */}
-              <div className="absolute top-1/4 left-1/4 w-16 h-16 bg-white rounded-lg shadow-lg flex items-center justify-center transform -rotate-6 animate-float">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-purple-600" viewBox="0 0 20 20" fill="currentColor">
+              <div className="absolute top-1/4 left-1/4 w-16 h-16 bg-white rounded-lg shadow-sm flex items-center justify-center transform -rotate-6 animate-float">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-amigo-text" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                 </svg>
               </div>
               
-              <div className="absolute bottom-1/4 right-1/4 w-16 h-16 bg-white rounded-lg shadow-lg flex items-center justify-center transform rotate-6 animate-float animation-delay-1000">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
+              <div className="absolute bottom-1/4 right-1/4 w-16 h-16 bg-white rounded-lg shadow-sm flex items-center justify-center transform rotate-6 animate-float animation-delay-1000">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-amigo-text" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
               </div>
               
-              <div className="absolute top-1/2 right-1/3 w-12 h-12 bg-white rounded-lg shadow-lg flex items-center justify-center transform -rotate-12 animate-float animation-delay-3000">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+              <div className="absolute top-1/2 right-1/3 w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center transform -rotate-12 animate-float animation-delay-3000">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-amigo-text" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
                 </svg>
               </div>
@@ -172,21 +172,21 @@ const TestFeatures = () => {
                 ref={el => {
                   cards.current[index] = el;
                 }}
-                className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border border-purple-50"
+                className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-300 border border-gray-100"
               >
-                <div className="text-purple-600 mb-4">
+                <div className="text-amigo-text mb-4">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-xl font-bold text-amigo-text mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-amigo-text-secondary">
                   {feature.description}
                 </p>
               </div>
             ))}
             
-            <p className="text-gray-600 mt-6">
+            <p className="text-amigo-text-secondary mt-6">
               Test empowers you to monitor, optimize, and drive continuous improvement across every interaction.
             </p>
           </div>

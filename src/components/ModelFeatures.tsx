@@ -114,17 +114,17 @@ const ModelFeatures = () => {
     <section 
       id="model" 
       ref={sectionRef}
-      className="py-20 bg-indigo-900 text-white"
+      className="py-20 bg-amigo-bg text-amigo-text"
     >
       <div className="container mx-auto px-4">
         <div ref={headingRef} className="text-center mb-16">
-          <span className="inline-block px-3 py-1 text-sm font-semibold bg-indigo-800 text-indigo-200 rounded-full mb-3">
+          <span className="inline-block px-3 py-1 text-sm font-semibold bg-amigo-mint bg-opacity-60 text-amigo-text rounded-full mb-3">
             Model
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-amigo-text mb-4">
             The Optimization Engine
           </h2>
-          <p className="text-lg text-indigo-200 max-w-3xl mx-auto">
+          <p className="text-lg text-amigo-text-secondary max-w-3xl mx-auto">
             Stay ahead with Model—our engine for relentless innovation.
           </p>
         </div>
@@ -138,21 +138,21 @@ const ModelFeatures = () => {
                   ref={el => {
                     cards.current[index] = el;
                   }}
-                  className="bg-indigo-800 bg-opacity-50 backdrop-blur-lg rounded-xl p-6 hover:bg-indigo-700 transition-all duration-300 border border-indigo-700"
+                  className="bg-white bg-opacity-80 backdrop-blur-sm rounded-xl p-6 hover:bg-white transition-all duration-300 border border-gray-100 shadow-sm"
                 >
-                  <div className="text-indigo-300 mb-4">
+                  <div className="text-amigo-text mb-4">
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3">
+                  <h3 className="text-xl font-bold text-amigo-text mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-indigo-200">
+                  <p className="text-amigo-text-secondary">
                     {feature.description}
                   </p>
                 </div>
               ))}
               
-              <p className="text-indigo-200 mt-6">
+              <p className="text-amigo-text-secondary mt-6">
                 Model ensures your solution remains at the bleeding edge of AI, continuously adapting and scaling to meet your enterprise needs.
               </p>
             </div>
@@ -162,52 +162,52 @@ const ModelFeatures = () => {
             {/* Neural network visualization */}
             <div className="relative w-full h-full">
               {/* Central node */}
-              <div className="circle absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-white rounded-full shadow-lg flex items-center justify-center z-10">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
+              <div className="circle absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-white rounded-full shadow-sm flex items-center justify-center z-10">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-amigo-text" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M13 7H7v6h6V7z" />
                   <path fillRule="evenodd" d="M7 2a1 1 0 012 0v1h2V2a1 1 0 112 0v1h2a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2a2 2 0 01-2 2h-2v1a1 1 0 11-2 0v-1H9v1a1 1 0 11-2 0v-1H5a2 2 0 01-2-2v-2H2a1 1 0 110-2h1V9H2a1 1 0 010-2h1V5a2 2 0 012-2h2V2zM5 5h10v10H5V5z" clipRule="evenodd" />
                 </svg>
               </div>
               
               {/* First layer nodes */}
-              <div className="circle absolute top-1/4 left-1/4 w-12 h-12 bg-indigo-500 rounded-full shadow-lg animate-pulse"></div>
-              <div className="circle absolute top-3/4 left-1/4 w-12 h-12 bg-indigo-500 rounded-full shadow-lg animate-pulse animation-delay-1000"></div>
-              <div className="circle absolute top-1/2 left-1/6 w-12 h-12 bg-indigo-500 rounded-full shadow-lg animate-pulse animation-delay-2000"></div>
+              <div className="circle absolute top-1/4 left-1/4 w-12 h-12 bg-amigo-mint rounded-full shadow-sm animate-pulse"></div>
+              <div className="circle absolute top-3/4 left-1/4 w-12 h-12 bg-amigo-mint rounded-full shadow-sm animate-pulse animation-delay-1000"></div>
+              <div className="circle absolute top-1/2 left-1/6 w-12 h-12 bg-amigo-mint rounded-full shadow-sm animate-pulse animation-delay-2000"></div>
               
               {/* Second layer nodes */}
-              <div className="circle absolute top-1/4 right-1/4 w-12 h-12 bg-purple-500 rounded-full shadow-lg animate-pulse animation-delay-500"></div>
-              <div className="circle absolute top-3/4 right-1/4 w-12 h-12 bg-purple-500 rounded-full shadow-lg animate-pulse animation-delay-1500"></div>
-              <div className="circle absolute top-1/2 right-1/6 w-12 h-12 bg-purple-500 rounded-full shadow-lg animate-pulse animation-delay-2500"></div>
+              <div className="circle absolute top-1/4 right-1/4 w-12 h-12 bg-amigo-pink rounded-full shadow-sm animate-pulse animation-delay-500"></div>
+              <div className="circle absolute top-3/4 right-1/4 w-12 h-12 bg-amigo-pink rounded-full shadow-sm animate-pulse animation-delay-1500"></div>
+              <div className="circle absolute top-1/2 right-1/6 w-12 h-12 bg-amigo-pink rounded-full shadow-sm animate-pulse animation-delay-2500"></div>
               
               {/* Connection lines - these will be created with CSS */}
               <div className="absolute inset-0 z-0">
                 <svg className="w-full h-full" viewBox="0 0 400 300" style={{ position: 'absolute' }}>
                   {/* Lines from layer 1 to center */}
-                  <line x1="100" y1="75" x2="200" y2="150" stroke="rgba(165, 180, 252, 0.5)" strokeWidth="2" />
-                  <line x1="100" y1="225" x2="200" y2="150" stroke="rgba(165, 180, 252, 0.5)" strokeWidth="2" />
-                  <line x1="70" y1="150" x2="200" y2="150" stroke="rgba(165, 180, 252, 0.5)" strokeWidth="2" />
+                  <line x1="100" y1="75" x2="200" y2="150" stroke="rgba(75, 75, 75, 0.3)" strokeWidth="2" />
+                  <line x1="100" y1="225" x2="200" y2="150" stroke="rgba(75, 75, 75, 0.3)" strokeWidth="2" />
+                  <line x1="70" y1="150" x2="200" y2="150" stroke="rgba(75, 75, 75, 0.3)" strokeWidth="2" />
                   
                   {/* Lines from center to layer 2 */}
-                  <line x1="200" y1="150" x2="300" y2="75" stroke="rgba(165, 180, 252, 0.5)" strokeWidth="2" />
-                  <line x1="200" y1="150" x2="300" y2="225" stroke="rgba(165, 180, 252, 0.5)" strokeWidth="2" />
-                  <line x1="200" y1="150" x2="330" y2="150" stroke="rgba(165, 180, 252, 0.5)" strokeWidth="2" />
+                  <line x1="200" y1="150" x2="300" y2="75" stroke="rgba(75, 75, 75, 0.3)" strokeWidth="2" />
+                  <line x1="200" y1="150" x2="300" y2="225" stroke="rgba(75, 75, 75, 0.3)" strokeWidth="2" />
+                  <line x1="200" y1="150" x2="330" y2="150" stroke="rgba(75, 75, 75, 0.3)" strokeWidth="2" />
                   
                   {/* Animated pulse along the lines */}
-                  <circle r="4" fill="white" opacity="0.8" className="animate-move-line">
+                  <circle r="4" fill="#1F1F1F" opacity="0.5" className="animate-move-line">
                     <animateMotion
                       path="M100,75 L200,150"
                       dur="2s"
                       repeatCount="indefinite"
                     />
                   </circle>
-                  <circle r="4" fill="white" opacity="0.8" className="animate-move-line">
+                  <circle r="4" fill="#1F1F1F" opacity="0.5" className="animate-move-line">
                     <animateMotion
                       path="M100,225 L200,150"
                       dur="3s"
                       repeatCount="indefinite"
                     />
                   </circle>
-                  <circle r="4" fill="white" opacity="0.8" className="animate-move-line">
+                  <circle r="4" fill="#1F1F1F" opacity="0.5" className="animate-move-line">
                     <animateMotion
                       path="M70,150 L200,150"
                       dur="1.5s"

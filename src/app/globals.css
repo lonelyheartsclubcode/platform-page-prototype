@@ -4,16 +4,20 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 249, 250, 251;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-rgb: 246, 244, 235;
+  --background-end-rgb: 246, 244, 235;
   --indigo-primary: 79, 70, 229;
   --indigo-secondary: 99, 102, 241;
   --purple-primary: 124, 58, 237;
   --purple-secondary: 139, 92, 246;
+  --mint-cta: 180, 228, 219;
+  --pink-badge: 255, 203, 196;
+  --text-primary: 31, 31, 31;
+  --text-secondary: 75, 75, 75;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: rgb(var(--text-primary));
   background: rgb(var(--background-end-rgb));
   overflow-x: hidden;
 }

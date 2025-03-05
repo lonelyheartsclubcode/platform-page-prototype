@@ -17,13 +17,13 @@ const Header = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-white shadow-md py-2' 
-          : 'bg-transparent py-4'
+          ? 'bg-amigo-bg shadow-sm py-2' 
+          : 'bg-amigo-bg py-4'
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold text-indigo-600">
-          Amigo
+        <Link href="/" className="text-2xl font-bold text-amigo-text">
+          amigo
         </Link>
         
         <nav className="hidden md:flex space-x-8">
@@ -31,7 +31,7 @@ const Header = () => {
             <Link 
               key={item} 
               href={`#${item.toLowerCase()}`}
-              className="text-gray-600 hover:text-indigo-600 transition-colors"
+              className="text-amigo-text hover:opacity-70 transition-colors"
             >
               {item}
             </Link>
@@ -41,12 +41,12 @@ const Header = () => {
         <div className="flex items-center space-x-4">
           <Link 
             href="#contact"
-            className="hidden md:inline-block px-6 py-2 rounded-full bg-indigo-600 text-white hover:bg-indigo-700 transition-colors"
+            className="hidden md:inline-block px-6 py-2 rounded-full bg-black text-white hover:bg-black/90 transition-colors"
           >
             Get Started
           </Link>
           
-          <button className="md:hidden text-gray-600">
+          <button className="md:hidden text-amigo-text">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
