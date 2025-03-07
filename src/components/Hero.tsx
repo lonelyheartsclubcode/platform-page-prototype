@@ -98,71 +98,109 @@ const Hero = () => {
             </h1>
             
             <p className="text-xl text-amigo-text-secondary mb-10">
-              The complete AI platform for building, testing, and optimizing intelligent agents
+              The complete AI operating system for building, testing, and optimizing intelligent agents
             </p>
             
             <button 
               ref={buttonRef}
-              className="px-8 py-4 bg-amigo-mint text-amigo-text rounded-lg text-lg font-medium hover:shadow-lg transition-all flex items-center"
+              className="px-8 py-3.5 bg-amigo-mint text-amigo-text rounded-md text-lg font-medium hover:shadow-lg transition-all flex items-center group"
             >
               Get Started
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </button>
           </div>
           
           <div ref={videoRef} className="md:w-1/2">
-            <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg">
-              {/* Video placeholder - animated gradient and interface elements */}
-              <div className="absolute inset-0 bg-gradient-to-br from-amigo-mint/30 to-amigo-pink/30 animate-pulse"></div>
+            <div className="relative w-full aspect-video rounded-md overflow-hidden shadow-sm border border-gray-100">
+              {/* Video placeholder - subtle gradient background */}
+              <div className="absolute inset-0 bg-gray-50"></div>
               
-              {/* Interface elements */}
+              {/* Interface elements - more enterprise looking */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-full max-w-md bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-sm">
-                  <div className="flex items-center mb-4">
-                    <div className="w-10 h-10 rounded-full bg-amigo-mint flex items-center justify-center mr-4">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                      </svg>
+                <div className="w-full max-w-md bg-white rounded-md shadow-sm border border-gray-100 overflow-hidden">
+                  {/* Header bar */}
+                  <div className="bg-gray-50 border-b border-gray-100 px-4 py-3 flex items-center">
+                    <div className="flex space-x-1.5">
+                      <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                      <div className="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                      <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
                     </div>
-                    <div>
-                      <div className="h-3 w-24 bg-gray-200 rounded-full"></div>
-                      <div className="h-2 w-16 bg-gray-100 rounded-full mt-1"></div>
-                    </div>
-                    <div className="ml-auto">
-                      <div className="h-8 w-8 rounded-full bg-amigo-mint flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" viewBox="0 0 20 20" fill="currentColor">
-                          <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
-                          <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
+                    <div className="mx-auto w-72 h-5 bg-gray-200 rounded-full"></div>
+                  </div>
+                  
+                  {/* Content area */}
+                  <div className="p-5">
+                    <div className="flex items-center mb-5">
+                      <div className="w-10 h-10 rounded-full bg-amigo-mint/10 flex items-center justify-center mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-amigo-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
                       </div>
+                      <div>
+                        <div className="h-2.5 w-28 bg-gray-200 rounded-full"></div>
+                        <div className="h-2 w-20 bg-gray-100 rounded-full mt-1.5"></div>
+                      </div>
+                      <div className="ml-auto">
+                        <div className="h-8 w-8 rounded-full bg-amigo-mint/10 border border-amigo-mint/30 flex items-center justify-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-amigo-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                          </svg>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="space-y-3 mb-4">
-                    <div className="h-2 w-full bg-gray-100 rounded-full"></div>
-                    <div className="h-2 w-5/6 bg-gray-100 rounded-full"></div>
-                    <div className="h-2 w-4/6 bg-gray-100 rounded-full"></div>
-                  </div>
-                  
-                  <div className="flex items-center justify-between">
-                    <div className="h-8 w-40 bg-amigo-mint/20 rounded-full"></div>
-                    <div className="h-8 w-20 bg-amigo-mint rounded-full"></div>
+                    
+                    {/* Message content */}
+                    <div className="space-y-2.5 mb-5">
+                      <div className="h-2 w-full bg-gray-100 rounded-full"></div>
+                      <div className="h-2 w-full bg-gray-100 rounded-full"></div>
+                      <div className="h-2 w-4/5 bg-gray-100 rounded-full"></div>
+                    </div>
+                    
+                    {/* Action buttons */}
+                    <div className="flex items-center justify-between">
+                      <div className="h-8 w-36 bg-gray-100 rounded-md"></div>
+                      <div className="h-8 w-20 bg-amigo-mint/10 border border-amigo-mint/30 rounded-md"></div>
+                    </div>
+                    
+                    {/* Status indicators */}
+                    <div className="mt-4 flex items-center space-x-3">
+                      <div className="flex items-center">
+                        <div className="w-1.5 h-1.5 rounded-full bg-green-500 mr-1.5"></div>
+                        <div className="h-2 w-12 bg-gray-100 rounded-full"></div>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-1.5 h-1.5 rounded-full bg-amigo-mint mr-1.5"></div>
+                        <div className="h-2 w-16 bg-gray-100 rounded-full"></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
               
-              {/* Animated dots in the background */}
-              <div className="absolute top-4 left-4 w-2 h-2 bg-amigo-mint rounded-full animate-ping"></div>
-              <div className="absolute bottom-8 right-12 w-2 h-2 bg-amigo-pink rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
-              <div className="absolute top-1/2 right-4 w-2 h-2 bg-amigo-mint rounded-full animate-ping" style={{ animationDelay: '0.5s' }}></div>
+              {/* Sierra-like badges/indicators */}
+              <div className="absolute bottom-4 left-4 flex items-center space-x-3">
+                <div className="bg-white rounded-full py-1 px-3 shadow-sm border border-gray-100 flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-amigo-mint mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-xs text-gray-600 font-medium">Verified</span>
+                </div>
+                <div className="bg-white rounded-full py-1 px-3 shadow-sm border border-gray-100 flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-amigo-mint mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                  <span className="text-xs text-gray-600 font-medium">Secure</span>
+                </div>
+              </div>
               
-              {/* Overlay play button */}
+              {/* Overlay play button - more enterprise style */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center shadow-lg">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-amigo-mint ml-1" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 group hover:bg-amigo-mint transition-colors duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-amigo-mint group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
               </div>
