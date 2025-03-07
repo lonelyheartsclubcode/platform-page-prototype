@@ -13,6 +13,7 @@ const TestFeatures = () => {
   const titleRef = useRef<HTMLDivElement>(null);
   const featureRefs = useRef<HTMLDivElement[]>([]);
   const dashboardRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLDivElement>(null);
   
   // Feature card data
   const features = [
@@ -101,6 +102,22 @@ const TestFeatures = () => {
           }
         }
       );
+      
+      // Animate video placeholder
+      gsap.fromTo(
+        videoRef.current,
+        { y: 40, opacity: 0 },
+        { 
+          y: 0, 
+          opacity: 1, 
+          duration: 1,
+          delay: 0.3,
+          scrollTrigger: {
+            trigger: videoRef.current,
+            start: "top 80%"
+          }
+        }
+      );
     });
     
     return () => ctx.revert();
@@ -119,10 +136,92 @@ const TestFeatures = () => {
           </p>
         </div>
         
+        {/* Video placeholder */}
+        <div ref={videoRef} className="max-w-5xl mx-auto mb-20">
+          <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+            <div className="relative aspect-video">
+              {/* Video content */}
+              <div className="absolute inset-0 bg-gradient-to-r from-gray-50 to-gray-100"></div>
+              
+              {/* Dashboard elements */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-full max-w-4xl grid grid-cols-3 gap-4 p-6">
+                  {/* Chart 1 */}
+                  <div className="col-span-2 bg-white rounded-lg shadow-sm p-4 h-[200px]">
+                    <div className="h-5 w-40 bg-gray-200 rounded-full mb-4"></div>
+                    <div className="flex items-end h-[140px] space-x-2">
+                      {[60, 75, 45, 80, 65, 90, 70, 85].map((h, i) => (
+                        <div key={i} className="flex-1 flex flex-col items-center">
+                          <div 
+                            className="w-full bg-amigo-mint rounded-t-sm" 
+                            style={{height: `${h}%`}}
+                          ></div>
+                          <div className="text-xs text-gray-400 mt-1">{i+1}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Stats */}
+                  <div className="space-y-4">
+                    <div className="bg-white rounded-lg shadow-sm p-4">
+                      <div className="h-4 w-20 bg-gray-200 rounded-full mb-2"></div>
+                      <div className="text-3xl font-bold text-amigo-mint">94%</div>
+                      <div className="h-3 w-16 bg-gray-100 rounded-full mt-1"></div>
+                    </div>
+                    
+                    <div className="bg-white rounded-lg shadow-sm p-4">
+                      <div className="h-4 w-24 bg-gray-200 rounded-full mb-2"></div>
+                      <div className="text-3xl font-bold text-amigo-mint">+28%</div>
+                      <div className="h-3 w-20 bg-gray-100 rounded-full mt-1"></div>
+                    </div>
+                    
+                    <div className="bg-white rounded-lg shadow-sm p-4">
+                      <div className="h-4 w-16 bg-gray-200 rounded-full mb-2"></div>
+                      <div className="text-3xl font-bold text-amigo-mint">9.2</div>
+                      <div className="h-3 w-12 bg-gray-100 rounded-full mt-1"></div>
+                    </div>
+                  </div>
+                  
+                  {/* Bottom row */}
+                  <div className="col-span-3 grid grid-cols-4 gap-4 mt-4">
+                    {[1, 2, 3, 4].map(i => (
+                      <div key={i} className="bg-white rounded-lg shadow-sm p-4 flex items-center">
+                        <div className="w-10 h-10 rounded-full bg-amigo-mint/20 flex items-center justify-center mr-3">
+                          <div className="w-5 h-5 rounded-full bg-amigo-mint"></div>
+                        </div>
+                        <div className="flex-1">
+                          <div className="h-3 w-16 bg-gray-200 rounded-full mb-1"></div>
+                          <div className="h-2 w-12 bg-gray-100 rounded-full"></div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              
+              {/* Animated elements */}
+              <div className="absolute top-6 right-6 flex space-x-2">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <div className="w-2 h-2 bg-amigo-mint rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+              </div>
+              
+              {/* Play button overlay */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center shadow-lg">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-amigo-mint ml-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         {/* Dashboard visualization */}
         <div ref={dashboardRef} className="mb-20 max-w-5xl mx-auto">
           <div className="bg-white rounded-lg shadow-sm p-4 overflow-hidden">
-            <div className="bg-white rounded h-[280px] flex flex-col">
+            <div className="bg-white rounded border border-gray-100 h-[280px] flex flex-col">
               <div className="h-12 flex items-center px-4 border-b border-gray-100">
                 <div className="font-medium text-lg text-amigo-text">Performance Dashboard</div>
                 <div className="ml-auto flex space-x-2">

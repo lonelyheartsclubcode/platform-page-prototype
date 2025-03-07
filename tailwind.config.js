@@ -7,6 +7,20 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: [
+          'Inter',
+          'ui-sans-serif',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Roboto',
+          'Helvetica Neue',
+          'Arial',
+          'sans-serif',
+        ],
+      },
       colors: {
         'amigo-bg': 'rgb(246, 244, 235)',
         'amigo-mint': 'rgb(180, 228, 219)',
@@ -24,6 +38,7 @@ module.exports = {
         'float': 'float 6s ease-in-out infinite',
         'draw-line': 'drawLine 2s ease-in-out forwards',
         'move-line': 'moveLine 3s linear infinite',
+        'dash': 'dash 20s linear infinite',
       },
       keyframes: {
         pulse: {
@@ -66,6 +81,11 @@ module.exports = {
           },
           '100%': {
             transform: 'translateX(100%)',
+          },
+        },
+        dash: {
+          to: {
+            'stroke-dashoffset': '-100',
           },
         },
       },

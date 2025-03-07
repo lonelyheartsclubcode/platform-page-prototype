@@ -12,6 +12,7 @@ const CoreFeatures = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const featureRefs = useRef<HTMLDivElement[]>([]);
+  const videoRef = useRef<HTMLDivElement>(null);
   
   // Feature card data
   const features = [
@@ -93,6 +94,22 @@ const CoreFeatures = () => {
           }
         }
       );
+      
+      // Animate video placeholder
+      gsap.fromTo(
+        videoRef.current,
+        { y: 40, opacity: 0 },
+        { 
+          y: 0, 
+          opacity: 1, 
+          duration: 1,
+          delay: 0.3,
+          scrollTrigger: {
+            trigger: videoRef.current,
+            start: "top 80%"
+          }
+        }
+      );
     });
     
     return () => ctx.revert();
@@ -109,6 +126,99 @@ const CoreFeatures = () => {
           <p className="text-xl text-amigo-text-secondary">
             Build and deploy AI agents in weeks, not months
           </p>
+        </div>
+        
+        {/* Video placeholder */}
+        <div ref={videoRef} className="max-w-5xl mx-auto mb-20 rounded-lg overflow-hidden shadow-lg">
+          <div className="relative aspect-video bg-amigo-bg">
+            {/* Interface mockup */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-full max-w-4xl p-4">
+                <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+                  <div className="h-12 bg-gray-50 border-b flex items-center px-4">
+                    <div className="flex space-x-2">
+                      <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                    </div>
+                    <div className="mx-auto w-64 h-6 bg-gray-200 rounded-full"></div>
+                  </div>
+                  
+                  <div className="flex h-[300px]">
+                    <div className="w-64 bg-gray-50 border-r p-4">
+                      <div className="h-8 w-full bg-amigo-mint/20 rounded-lg mb-4"></div>
+                      <div className="space-y-3">
+                        {[1, 2, 3, 4].map(i => (
+                          <div key={i} className="flex items-center">
+                            <div className="w-6 h-6 rounded-full bg-amigo-mint/30 mr-2"></div>
+                            <div className="h-4 bg-gray-200 rounded-full flex-1"></div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="flex-1 p-6">
+                      <div className="flex mb-6">
+                        <div className="w-10 h-10 rounded-full bg-amigo-mint flex items-center justify-center mr-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                        <div className="flex-1">
+                          <div className="h-3 bg-gray-200 rounded-full w-3/4 mb-2"></div>
+                          <div className="h-2 bg-gray-100 rounded-full w-1/2"></div>
+                        </div>
+                      </div>
+                      
+                      <div className="space-y-3 mb-6">
+                        <div className="h-3 bg-gray-200 rounded-full w-full"></div>
+                        <div className="h-3 bg-gray-200 rounded-full w-5/6"></div>
+                        <div className="h-3 bg-gray-200 rounded-full w-4/6"></div>
+                      </div>
+                      
+                      <div className="flex justify-end">
+                        <div className="h-8 w-24 bg-amigo-mint rounded-lg"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Animated elements */}
+            <div className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-amigo-mint/20 animate-pulse"></div>
+            <div className="absolute bottom-1/3 right-1/4 w-24 h-24 rounded-full bg-amigo-pink/20 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+            
+            {/* Connection lines - animated */}
+            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <path 
+                d="M30,30 C50,20 70,40 80,60" 
+                stroke="rgba(180, 228, 219, 0.5)" 
+                strokeWidth="0.5" 
+                fill="none" 
+                strokeDasharray="4 2"
+                className="animate-dash"
+              />
+              <path 
+                d="M20,70 C30,50 60,30 80,40" 
+                stroke="rgba(255, 203, 196, 0.5)" 
+                strokeWidth="0.5" 
+                fill="none" 
+                strokeDasharray="4 2"
+                className="animate-dash"
+                style={{ animationDelay: '0.5s' }}
+              />
+            </svg>
+            
+            {/* Play button overlay */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-amigo-mint ml-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
         
         {/* Process visualization */}
