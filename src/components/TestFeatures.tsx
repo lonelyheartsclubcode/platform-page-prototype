@@ -2,192 +2,218 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
-// Register the ScrollTrigger plugin
+// Register ScrollTrigger plugin
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const features = [
-  {
-    title: 'Scorecards & Metrics',
-    description: 'Real-time KPIs that measure success and highlight improvement opportunities.',
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" viewBox="0 0 20 20" fill="currentColor">
-        <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
-        <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
-      </svg>
-    )
-  },
-  {
-    title: 'Persona Simulations',
-    description: 'Run thousands of simulated conversations before deployment—stress-testing agent behaviors to ensure they align with your objectives.',
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" viewBox="0 0 20 20" fill="currentColor">
-        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
-      </svg>
-    )
-  }
-];
-
 const TestFeatures = () => {
+  // Refs for animations
   const sectionRef = useRef<HTMLDivElement>(null);
-  const headingRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<HTMLDivElement>(null);
-  const cards = useRef<(HTMLDivElement | null)[]>([]);
-  const imageRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const featureRefs = useRef<HTMLDivElement[]>([]);
+  const dashboardRef = useRef<HTMLDivElement>(null);
   
+  // Feature card data
+  const features = [
+    {
+      title: "Performance Scorecards",
+      description: "Measure agent effectiveness across 30+ dimensions",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+      )
+    },
+    {
+      title: "Real-time Dashboards",
+      description: "Visualize KPIs, usage patterns, and performance trends",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+        </svg>
+      )
+    },
+    {
+      title: "Persona Simulations",
+      description: "Test with 50+ user personas before deployment",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+      )
+    }
+  ];
+
+  // Set up refs
+  const setFeatureRef = (el: HTMLDivElement | null, index: number) => {
+    if (el) featureRefs.current[index] = el;
+  };
+
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    
+
     const ctx = gsap.context(() => {
-      // Heading animation
+      // Animate section title
       gsap.fromTo(
-        headingRef.current,
-        { 
-          y: 50, 
-          opacity: 0 
-        },
+        titleRef.current,
+        { y: 30, opacity: 0 },
         { 
           y: 0, 
           opacity: 1, 
           duration: 0.8,
           scrollTrigger: {
-            trigger: headingRef.current,
-            start: "top 80%",
-            toggleActions: "play none none none"
+            trigger: titleRef.current,
+            start: "top 80%"
           }
         }
       );
       
-      // Animation for the image/illustration
+      // Animate dashboard
       gsap.fromTo(
-        imageRef.current,
+        dashboardRef.current,
+        { y: 30, opacity: 0 },
         { 
-          x: -50, 
-          opacity: 0 
-        },
-        { 
-          x: 0, 
+          y: 0, 
           opacity: 1, 
-          duration: 1,
+          duration: 0.8,
+          delay: 0.2,
           scrollTrigger: {
-            trigger: imageRef.current,
-            start: "top 70%",
-            toggleActions: "play none none none"
+            trigger: dashboardRef.current,
+            start: "top 85%"
           }
         }
       );
       
-      // Cards animation with stagger
-      cards.current.forEach((card, index) => {
-        if (card) {
-          gsap.fromTo(
-            card,
-            { 
-              x: 50, 
-              opacity: 0 
-            },
-            { 
-              x: 0, 
-              opacity: 1, 
-              duration: 0.6,
-              delay: 0.3 + (index * 0.2),
-              scrollTrigger: {
-                trigger: cardsRef.current,
-                start: "top 70%",
-                toggleActions: "play none none none"
-              }
-            }
-          );
+      // Animate feature cards
+      gsap.fromTo(
+        featureRefs.current,
+        { y: 40, opacity: 0 },
+        { 
+          y: 0, 
+          opacity: 1, 
+          duration: 0.6,
+          stagger: 0.15,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: featureRefs.current[0],
+            start: "top 75%"
+          }
         }
-      });
-    }, sectionRef);
+      );
+    });
     
-    return () => ctx.revert(); // Cleanup
+    return () => ctx.revert();
   }, []);
-  
+
   return (
-    <section 
-      id="test" 
-      ref={sectionRef}
-      className="py-20 bg-white"
-    >
+    <section ref={sectionRef} className="py-24 bg-amigo-bg">
       <div className="container mx-auto px-4">
-        <div ref={headingRef} className="text-center mb-16">
-          <span className="inline-block px-3 py-1 text-sm font-semibold bg-amigo-mint bg-opacity-40 text-amigo-text rounded-full mb-3">
-            Test
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-amigo-text mb-4">
+        {/* Section header */}
+        <div ref={titleRef} className="max-w-3xl mx-auto text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-amigo-text">
             The Observability Layer
           </h2>
-          <p className="text-lg text-amigo-text-secondary max-w-3xl mx-auto">
-            Gain complete visibility into your AI's performance with Test.
+          <p className="text-xl text-amigo-text-secondary">
+            Complete visibility into AI performance
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div ref={imageRef} className="order-2 lg:order-1">
-            {/* Abstract visualization */}
-            <div className="relative w-full h-80 bg-gradient-to-br from-amigo-mint to-amigo-bg rounded-2xl overflow-hidden shadow-sm">
-              {/* Graph line */}
-              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 300">
-                <path 
-                  d="M0,150 C50,120 100,180 150,150 C200,120 250,180 300,150 C350,120 400,180 450,150" 
-                  fill="none" 
-                  stroke="#1F1F1F" 
-                  strokeWidth="3"
-                  strokeDasharray="1000"
-                  strokeDashoffset="1000"
-                  className="animate-draw-line"
-                />
-                <circle cx="150" cy="150" r="6" fill="#1F1F1F" className="animate-pulse"/>
-                <circle cx="300" cy="150" r="6" fill="#1F1F1F" className="animate-pulse animation-delay-2000"/>
-              </svg>
-              
-              {/* Floating elements */}
-              <div className="absolute top-1/4 left-1/4 w-16 h-16 bg-white rounded-lg shadow-sm flex items-center justify-center transform -rotate-6 animate-float">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-amigo-text" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-                </svg>
+        {/* Dashboard visualization */}
+        <div ref={dashboardRef} className="mb-20 max-w-5xl mx-auto">
+          <div className="bg-white rounded-lg shadow-sm p-4 overflow-hidden">
+            <div className="bg-white rounded h-[280px] flex flex-col">
+              <div className="h-12 flex items-center px-4 border-b border-gray-100">
+                <div className="font-medium text-lg text-amigo-text">Performance Dashboard</div>
+                <div className="ml-auto flex space-x-2">
+                  <div className="w-20 h-6 bg-gray-100 rounded"></div>
+                  <div className="w-20 h-6 bg-gray-100 rounded"></div>
+                </div>
               </div>
-              
-              <div className="absolute bottom-1/4 right-1/4 w-16 h-16 bg-white rounded-lg shadow-sm flex items-center justify-center transform rotate-6 animate-float animation-delay-1000">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-amigo-text" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-              </div>
-              
-              <div className="absolute top-1/2 right-1/3 w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center transform -rotate-12 animate-float animation-delay-3000">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-amigo-text" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
-                </svg>
+              <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+                <div className="col-span-2 bg-gray-50 rounded p-4 flex flex-col">
+                  <div className="text-sm font-medium mb-2 text-amigo-text">Conversation Quality</div>
+                  <div className="flex-1 flex items-end">
+                    <div className="w-full flex items-end h-[120px] space-x-1">
+                      {[75, 82, 79, 85, 90, 86, 94].map((h, i) => (
+                        <div key={i} className="flex-1 bg-amigo-mint rounded-t" style={{height: `${h}%`}}></div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-gray-50 rounded p-4">
+                  <div className="text-sm font-medium mb-2 text-amigo-text">Performance Metrics</div>
+                  <div className="space-y-3">
+                    {['Accuracy', 'Satisfaction', 'Task Completion'].map((metric, i) => (
+                      <div key={i} className="w-full">
+                        <div className="flex justify-between text-xs mb-1">
+                          <span>{metric}</span>
+                          <span>{85 + i * 5}%</span>
+                        </div>
+                        <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                          <div className="h-full bg-amigo-mint rounded-full" style={{width: `${85 + i * 5}%`}}></div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          
-          <div ref={cardsRef} className="order-1 lg:order-2 space-y-6">
-            {features.map((feature, index) => (
-              <div
-                key={feature.title}
-                ref={el => {
-                  cards.current[index] = el;
-                }}
-                className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-300 border border-gray-100"
-              >
-                <div className="text-amigo-text mb-4">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-bold text-amigo-text mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-amigo-text-secondary">
-                  {feature.description}
-                </p>
+        </div>
+        
+        {/* Feature cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+          {features.map((feature, index) => (
+            <div 
+              key={index} 
+              ref={(el) => setFeatureRef(el as HTMLDivElement, index)}
+              className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
+            >
+              <div className="text-amigo-mint mb-4">
+                {feature.icon}
               </div>
-            ))}
+              <h3 className="text-xl font-bold mb-3 text-amigo-text">
+                {feature.title}
+              </h3>
+              <p className="text-amigo-text-secondary">
+                {feature.description}
+              </p>
+            </div>
+          ))}
+        </div>
+        
+        {/* Process steps */}
+        <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-sm overflow-hidden">
+          <div className="p-8">
+            <h3 className="text-2xl font-bold mb-6 text-amigo-text text-center">
+              How We Measure Success
+            </h3>
             
-            <p className="text-amigo-text-secondary mt-6">
-              Test empowers you to monitor, optimize, and drive continuous improvement across every interaction.
+            <div className="space-y-6">
+              {['Pre-Launch Validation', 'Performance Monitoring', 'Continuous Improvement'].map((step, i) => (
+                <div key={i} className="flex">
+                  <div className="w-10 h-10 rounded-full bg-amigo-mint flex-shrink-0 flex items-center justify-center text-white font-bold mt-1 mr-4">
+                    {i + 1}
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold mb-1 text-amigo-text">{step}</h4>
+                    <p className="text-amigo-text-secondary">
+                      {i === 0 ? 
+                        '10,000+ simulated interactions with diverse personas before deployment' : 
+                      i === 1 ? 
+                        'LLM judges evaluate conversations against custom success criteria' : 
+                        'A/B testing and user feedback refine agent behavior for optimal outcomes'}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <div className="bg-amigo-mint/10 p-4 text-center">
+            <p className="text-amigo-text-secondary">
+              Transform subjective impressions into quantifiable metrics
             </p>
           </div>
         </div>
